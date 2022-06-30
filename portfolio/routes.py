@@ -1,7 +1,7 @@
 from flask import render_template
 
 from portfolio import app
-
+from portfolio.forms import ContactForm
 
 @app.route('/')
 @app.route('/index')
@@ -21,4 +21,5 @@ def cv():
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    contact_form = ContactForm()
+    return render_template('contact.html', form=contact_form)
