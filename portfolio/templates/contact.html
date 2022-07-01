@@ -2,17 +2,54 @@
 
 {% block content %}
     <main class="page contact-page">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <section class="portfolio-block contact">
             <div class="container">
                 <div class="heading">
                     <h2>Contact me</h2>
                 </div>
-                <form>
+                <form action="" method="post" novalidate>
                     {{ form.hidden_tag() }}
-                    <div class="mb-3">{{ form.name.label(class_='form-label') }}{{ form.name(class_='form-control item') }}</div>
-                    <div class="mb-3">{{ form.subject.label(class_='form-label') }}{{ form.subject(class_='form-control item') }}</div>
-                    <div class="mb-3">{{ form.email.label(class_='form-label') }}{{ form.email(class_='form-control item') }}</div>
-                    <div class="mb-3">{{ form.message.label(class_='form-label') }}{{ form.message(class_='form-control item') }}</div>
+                    <div class="mb-3">
+                        {{ form.name.label(class_='form-label') }}{{ form.name(class_='form-control item') }}
+                        {% for error in form.name.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.subject.label(class_='form-label') }}{{ form.subject(class_='form-control item') }}
+                        {% for error in form.subject.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label(class_='form-label') }}{{ form.email(class_='form-control item') }}
+                        {% for error in form.email.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.message.label(class_='form-label') }}{{ form.message(class_='form-control item') }}
+                        {% for error in form.message.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
                     <div class="mb-3">{{ form.submit(class_='btn btn-primary btn-lg d-block w-100') }}</div>
                 </form>
             </div>
