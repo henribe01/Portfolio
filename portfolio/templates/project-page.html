@@ -9,13 +9,8 @@
                 <div class="image" style="background-image:url('../static/img/projects/{{ project.image }}');"></div>
                 <div class="row">
                     <div class="col-12 col-md-6 offset-md-1 info">
-                        <h3>{{ project.description }}</h3>
-                        <p>Nam a ultrices mauris. Nam efficitur, lorem a vehicula interdum, ligula velit euismod lorem,
-                            vitae vehicula ligula tortor eu leo. Maecenas porttitor massa ut vestibulum euismod. Aliquam
-                            eget mi aliquam.</p>
-                        <p>Lorem ipsum dapibus dolor non, malesuada mauris. Aliquam eleifend mauris non odio mattis
-                            auctor. Aenean sit amet elementum tellus, a facilisis ligula. Pellentesque ac vehicula
-                            mauris.</p>
+                        <h3>Beschreibung</h3>
+                        <p>{{ project.description }}</p>
                     </div>
                     <div class="col-12 col-md-3 offset-md-1 meta">
                         <div class="tags">
@@ -27,24 +22,14 @@
                 </div>
                 <div class="more-projects">
                     <h3 class="text-center">More Projects</h3>
-                    <!--TODO: show recent projects-->
                     <div class="row gallery">
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="#"><img class="img-fluid scale-on-hover"
-                                                               src="assets/img/nature/image2.jpg"></a></div>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="#"><img class="img-fluid scale-on-hover"
-                                                               src="assets/img/nature/image3.jpg"></a></div>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="#"><img class="img-fluid scale-on-hover"
-                                                               src="assets/img/tech/image4.jpg"></a></div>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="#"><img class="img-fluid scale-on-hover"
-                                                               src="assets/img/nature/image5.jpg"></a></div>
-                        </div>
+                        {% for project in latest_projects %}
+                            <div class="col-md-4 col-lg-3">
+                                <div class="item"><a href={{ url_for('project', project_name=project.name) }}><img
+                                        class="img-fluid scale-on-hover"
+                                        src="../static/img/projects/{{ project.image }}"></a></div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

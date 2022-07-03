@@ -21,7 +21,8 @@ def projects():
 @app.route('/project/<project_name>')
 def project(project_name):
     project = Project.query.filter_by(name=project_name).first()
-    return render_template('project-page.html', project=project)
+    latest_projects = Project.query.order_by(Project.date.desc()).limit(4)
+    return render_template('project-page.html', project=project, latest_projects=latest_projects)
 
 
 @app.route('/cv')
