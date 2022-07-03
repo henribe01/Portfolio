@@ -1,1 +1,3 @@
-from portfolio import app
+from portfolio import create_app
+
+create_app().run()
