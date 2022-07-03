@@ -9,9 +9,10 @@
                 <div class="row">
                     {% for project in projects %}
                         <div class="col-md-6 col-lg-4">
-                            <div class="card border-0"><a href="{{ url_for('projects/' + project.id) }}"><img class="card-img-top scale-on-hover"
-                                                                        src="../static/img/projects/{{ project.image }}"
-                                                                        alt="Card Image"></a>
+                            <div class="card border-0"><a href="{{ url_for('project', project_name=project.name) }}"><img
+                                    class="card-img-top scale-on-hover"
+                                    src="../static/img/projects/{{ project.image }}"
+                                    alt="Card Image"></a>
                                 <div class="card-body">
                                     <h6><a href="#">{{ project.name }}</a></h6>
                                     <p class="text-muted card-text">{{ project.description }}</p>
