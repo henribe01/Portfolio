@@ -1,0 +1,61 @@
+{% extends "base_admin.html" %}
+
+{% block content %}
+    <div id="content">
+        <div class="container-fluid">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h3 class="text-dark mb-4" style="margin-top: 24px;">Projects</h3>
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">Employee Info</p>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+                        <div class="mb-3">
+                            {{ form.name.label(class_='form-label') }}{{ form.name(class_='form-control item') }}
+                            {% for error in form.name.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.description.label(class_='form-label') }}{{ form.description(class_='form-control item') }}
+                            {% for error in form.description.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.image.label(class_='form-label') }}{{ form.image(class_='form-control item') }}
+                            {% for error in form.image.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.git_url.label(class_='form-label') }}{{ form.git_url(class_='form-control item') }}
+                            {% for error in form.git_url.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">{{ form.submit(class_='btn btn-primary btn-lg d-block w-100') }}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

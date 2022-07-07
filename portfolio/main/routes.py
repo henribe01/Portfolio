@@ -15,7 +15,7 @@ def index():
 
 @bp.route('/projects')
 def projects():
-    projects = Project.query.all()
+    projects = Project.query.order_by(Project.date.desc()).all()
     return render_template('projects-grid-cards.html', projects=projects)
 
 

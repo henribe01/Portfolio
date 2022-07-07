@@ -8,3 +8,4 @@ class Config(object):
         os.path.dirname(__file__), 'portfolio.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     CAROUSEL_AMOUNT = 3
+    PROJECTS_PER_PAGE = 12

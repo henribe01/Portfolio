@@ -8,3 +8,10 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
+
+class ProjectForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    description = StringField('Description', validators=[DataRequired()])
+    image = StringField('Image', validators=[DataRequired()])
+    git_url = StringField('Git URL', validators=[DataRequired()])
+    submit = SubmitField('Create Project')

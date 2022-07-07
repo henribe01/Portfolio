@@ -9,15 +9,10 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6 text-nowrap">
-                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label
-                                    class="form-label">Show&nbsp;<select
-                                    class="d-inline-block form-select form-select-sm">
-                                <option value="10" selected="">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>&nbsp;</label></div>
+                        <div class="col">
+                            <form method="post">
+                                <input type="submit" class="btn btn-primary" value="Add Project">
+                            </form>
                         </div>
                         <div class="col-md-6">
                             <div class="text-md-end dataTables_filter" id="dataTable_filter"><label
@@ -32,124 +27,34 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Description</th>
+                                <th>Image Path</th>
+                                <th>git-URL</th>
+                                <th>Date</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar1.jpeg">Airi Satou
-                                </td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>33</td>
-                                <td>2008/11/28</td>
-                                <td>$162,700</td>
+                                {% for project in projects %}
+                                    <td><img class="avatar me-2" height="30"
+                                             src="../static/img/projects/{{ project.image }}">{{ project.name }}
+                                    </td>
+                                    <td>{{ project.description }}</td>
+                                    <td>{{ project.image }}</td>
+                                    <td>{{ project.git_url }}</td>
+                                    <td>{{ project.date }}</td>
+                                    <td><a href="#" style="color: darkred;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em"
+                                             height="1em" fill="currentColor">
+                                            <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                            <path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z"></path>
+                                        </svg>
+                                    </a></td>
+                                {% endfor %}
                             </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar2.jpeg">Angelica Ramos
-                                </td>
-                                <td>Chief Executive Officer(CEO)</td>
-                                <td>London</td>
-                                <td>47</td>
-                                <td>2009/10/09<br></td>
-                                <td>$1,200,000</td>
-                            </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar3.jpeg">Ashton Cox
-                                </td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12<br></td>
-                                <td>$86,000</td>
-                            </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar4.jpeg">Bradley Greer
-                                </td>
-                                <td>Software Engineer</td>
-                                <td>London</td>
-                                <td>41</td>
-                                <td>2012/10/13<br></td>
-                                <td>$132,000</td>
-                            </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar5.jpeg">Brenden Wagner
-                                </td>
-                                <td>Software Engineer</td>
-                                <td>San Francisco</td>
-                                <td>28</td>
-                                <td>2011/06/07<br></td>
-                                <td>$206,850</td>
-                            </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar1.jpeg">Brielle Williamson
-                                </td>
-                                <td>Integration Specialist</td>
-                                <td>New York</td>
-                                <td>61</td>
-                                <td>2012/12/02<br></td>
-                                <td>$372,000</td>
-                            </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar2.jpeg">Bruno Nash<br></td>
-                                <td>Software Engineer</td>
-                                <td>London</td>
-                                <td>38</td>
-                                <td>2011/05/03<br></td>
-                                <td>$163,500</td>
-                            </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar3.jpeg">Caesar Vance
-                                </td>
-                                <td>Pre-Sales Support</td>
-                                <td>New York</td>
-                                <td>21</td>
-                                <td>2011/12/12<br></td>
-                                <td>$106,450</td>
-                            </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar4.jpeg">Cara Stevens
-                                </td>
-                                <td>Sales Assistant</td>
-                                <td>New York</td>
-                                <td>46</td>
-                                <td>2011/12/06<br></td>
-                                <td>$145,600</td>
-                            </tr>
-                            <tr>
-                                <td><img class="rounded-circle me-2" width="30" height="30"
-                                         src="assets/img/avatars/avatar5.jpeg">Cedric Kelly
-                                </td>
-                                <td>Senior JavaScript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>22</td>
-                                <td>2012/03/29<br></td>
-                                <td>$433,060</td>
-                            </tr>
+
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <td><strong>Name</strong></td>
-                                <td><strong>Position</strong></td>
-                                <td><strong>Office</strong></td>
-                                <td><strong>Age</strong></td>
-                                <td><strong>Start date</strong></td>
-                                <td><strong>Salary</strong></td>
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                     <div class="row">
