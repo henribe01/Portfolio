@@ -3,6 +3,15 @@
     <div id="content">
         <div class="container-fluid">
             <h3 class="text-dark mb-4" style="margin-top: 24px;">Projects</h3>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <div class="card shadow">
                 <div class="card-header py-3">
                     <p class="text-primary m-0 fw-bold">Employee Info</p>
@@ -35,8 +44,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                {% for project in projects %}
+                            {% for project in projects %}
+                                <tr>
                                     <td><img class="avatar me-2" height="30"
                                              src="../static/img/projects/{{ project.image }}">{{ project.name }}
                                     </td>
@@ -44,15 +53,16 @@
                                     <td>{{ project.image }}</td>
                                     <td>{{ project.git_url }}</td>
                                     <td>{{ project.date }}</td>
-                                    <td><a href="#" style="color: darkred;">
+                                    <td><a href="{{ url_for('admin.delete_project', id=project.id) }}"
+                                           style="color: darkred;">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em"
                                              height="1em" fill="currentColor">
                                             <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
                                             <path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z"></path>
                                         </svg>
                                     </a></td>
-                                {% endfor %}
-                            </tr>
+                                </tr>
+                            {% endfor %}
 
                             </tbody>
                         </table>

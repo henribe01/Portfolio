@@ -9,3 +9,6 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     CAROUSEL_AMOUNT = 3
     PROJECTS_PER_PAGE = 12
+
+    UPLOAD_FOLDER = os.path.join(os.getcwd(), 'portfolio\\static\\img\\projects')
+    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}

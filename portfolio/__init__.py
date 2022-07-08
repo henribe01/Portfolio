@@ -25,4 +25,5 @@ def create_app(config_class=Config):
 
     from portfolio.admin import bp as admin_bp
     app.register_blueprint(admin_bp, url_prefix='/admin')
+
     return app
