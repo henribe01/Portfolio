@@ -73,7 +73,10 @@ def messages_table():
 def message(id):
     message = Messages.query.get(id)
     if request.method == 'PUT':
-        message.unread = False
+        if message.unread:
+            message.unread = False
+        else:
+            message.unread = True
         db.session.commit()
     return message.to_json()
 
