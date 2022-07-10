@@ -1,6 +1,5 @@
 from datetime import datetime
 
-from flask import current_app
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -20,7 +19,6 @@ class Admin(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-
 
 
 @login.user_loader
@@ -46,11 +44,25 @@ class Project(db.Model):
 class Messages(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
+    subject = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(80), nullable=False)
     message = db.Column(db.String(255), nullable=False)
+    date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    unread = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
         return '<Message %r>' % self.name
 
     def __str__(self):
         return self.name
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'subject': self.subject,
+            'email': self.email,
+            'message': self.message,
+            'date': self.date,
+            'unread': self.unread
+        }

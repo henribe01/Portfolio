@@ -1,8 +1,9 @@
 from flask import render_template, flash, redirect, url_for, current_app
 
+from portfolio import db
 from portfolio.main import bp
 from portfolio.main.forms import ContactForm
-from portfolio.models import Project
+from portfolio.models import Project, Messages
 
 
 @bp.route('/')
@@ -36,7 +37,12 @@ def cv():
 def contact():
     contact_form = ContactForm()
     if contact_form.validate_on_submit():
-        # TODO: Send email or save into DB
+        message = Messages(name=contact_form.name.data,
+                           subject=contact_form.subject.data,
+                           email=contact_form.email.data,
+                           message=contact_form.message.data)
+        db.session.add(message)
+        db.session.commit()
         flash('Ihre Nachricht wurde erfolgreich versendet.')
         return redirect(url_for('main.contact'))
     return render_template('contact.html', form=contact_form)

@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, \
     URLField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, URL
 
 
 class LoginForm(FlaskForm):
@@ -18,5 +18,5 @@ class ProjectForm(FlaskForm):
     image = FileField('Image',
                       validators=[FileRequired(),
                                   FileAllowed(['jpg', 'png', 'jpeg', 'gif'])])
-    git_url = URLField('Git URL', validators=[DataRequired()])
+    git_url = URLField('Git URL', validators=[DataRequired(), URL()])
     submit = SubmitField('Create Project')

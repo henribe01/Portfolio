@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 from portfolio import db
 from portfolio.admin import bp
 from portfolio.admin.forms import LoginForm, ProjectForm
-from portfolio.models import Admin, Project
+from portfolio.models import Admin, Project, Messages
 
 
 @bp.route('/')
@@ -62,8 +62,20 @@ def delete_project(id):
 
 @bp.route('/messages')
 @login_required
-def messages():
-    return render_template('messages-table.html')
+def messages_table():
+    messages = Messages.query.order_by(Messages.unread.desc(),
+                                       Messages.date.desc()).all()
+    return render_template('messages-table.html', messages=messages)
+
+
+@bp.route('/message/<int:id>', methods=['GET', 'PUT'])
+@login_required
+def message(id):
+    message = Messages.query.get(id)
+    if request.method == 'PUT':
+        message.unread = False
+        db.session.commit()
+    return message.to_json()
 
 
 @bp.route('/login', methods=['GET', 'POST'])
