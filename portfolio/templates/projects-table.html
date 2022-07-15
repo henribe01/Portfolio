@@ -49,7 +49,7 @@
                                     <td><img class="avatar me-2" height="30"
                                              src="../static/img/projects/{{ project.image }}">{{ project.name }}
                                     </td>
-                                    <td>{{ project.description }}</td>
+                                    <td>{{ project.description|truncate(50) }}</td>
                                     <td>{{ project.image }}</td>
                                     <td>{{ project.git_url }}</td>
                                     <td>{{ project.date }}</td>

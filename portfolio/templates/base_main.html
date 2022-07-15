@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Henri Benecke</title>
+    <title>{{ title }} - Henri Benecke</title>
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap_main.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
     <link rel="stylesheet" href="../static/fonts/ionicons.min.css">
@@ -20,9 +20,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link active" href="{{ url_for('main.index') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.projects') }}">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href={{ url_for('main.cv') }}>CV</a></li>
-                <li class="nav-item"><a class="nav-link" href={{ url_for('main.contact') }}>Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.projects') }}">Projekte</a></li>
+                <li class="nav-item"><a class="nav-link" href={{ url_for('main.cv') }}>Lebenslauf</a></li>
+                <li class="nav-item"><a class="nav-link" href={{ url_for('main.contact') }}>Kontakt</a></li>
             </ul>
         </div>
     </div>
@@ -30,10 +30,8 @@
 {% block content %}{% endblock %}
 <footer class="page-footer">
     <div class="container">
-        <div class="links"><a href="#">About me</a><a href="#">Contact me</a><a href="#">Projects</a></div>
-        <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
-                class="icon ion-social-instagram-outline"></i></a><a href="#"><i
-                class="icon ion-social-twitter"></i></a></div>
+        <div class="links"><a href="{{ url_for('main.cv') }}">Lebenslauf</a><a href="{{ url_for('main.contact') }}">Kontakt</a></a>
+            <a href="{{ url_for('main.projects') }}">Projekte</a></div>
     </div>
 </footer>
 <script src="../static/bootstrap/js/bootstrap.min.js"></script>

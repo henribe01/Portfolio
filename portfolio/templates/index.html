@@ -3,57 +3,64 @@
     <main class="page lanidng-page">
         <section class="portfolio-block block-intro">
             <div class="container">
-                <div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatar.jpg&quot;);"></div>
                 <div class="about-me">
-                    <p>Hello! I am <strong>John Smith</strong>. I work as interface and front end developer. I have
-                        passion for pixel perfect, minimal and easy to use interfaces.</p>
+                    <p>Hallo! Ich bin <strong>Henri Benecke</strong>. Ich studiere "Computing in Science - Physik" und
+                        programmiere gerne in meine Freizeit.</p>
                 </div>
             </div>
         </section>
         <section>
+            <div class="container">
+                <div class="heading text-center">
+                    <h2>Meine Projekte</h2>
+                </div>
+
+            </div>
             <div class="carousel slide" data-bs-ride="carousel" id="carousel-1" style="height: 600px;">
                 <div class="carousel-inner h-100">
                     {% for project in latest_projects %}
                         {% if loop.index == 1 %}
-                        <div class="carousel-item h-100 active">
+                            <div class="carousel-item h-100 active">
                         {% else %}
-                        <div class="carousel-item h-100">
+                            <div class="carousel-item h-100">
                         {% endif %}
-                            <img class="w-100 d-block position-absolute h-100 fit-cover"
-                                                              src="../static/img/projects/{{ project.image }}"
-                                                              alt="Slide Image" style="z-index: -1;filter: blur(2px);">
-                            <div class="container d-flex flex-column justify-content-center h-100">
-                                <div class="row">
-                                    <div class="col-md-6 col-xl-4 offset-md-2">
-                                        <div style="max-width: 350px;">
-                                            <h1 class="text-uppercase fw-bold">{{ project.name }}</h1>
-                                            <p class="my-3">{{ project.description }}</p><a
-                                                class="btn btn-primary btn-lg me-2" role="button"
-                                                href={{ url_for('main.project', project_name=project.name) }}>Link zum
-                                            Projekt</a>
-                                        </div>
-                                    </div>
+                    <img class="w-100 d-block position-absolute h-100 fit-cover"
+                         src="../static/img/projects/{{ project.image }}"
+                         alt="Slide Image" style="z-index: -1;filter: blur(2px);">
+                    <div class="container d-flex flex-column justify-content-center h-100">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4 offset-md-2">
+                                <div style="max-width: 350px;">
+                                    <h1 class="text-uppercase fw-bold">{{ project.name }}</h1>
+                                    <p class="my-3">{{ project.description|truncate(100) }}</p><a
+                                        class="btn btn-primary btn-lg me-2" role="button"
+                                        href={{ url_for('main.project', project_name=project.name) }}>Link zum
+                                    Projekt</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    </div>
                     {% endfor %}
+                    </div>
+                    <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span
+                            class="carousel-control-prev-icon"></span><span
+                            class="visually-hidden">Previous</span></a><a
+                            class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span
+                            class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+                    </ol>
                 </div>
-                <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span
-                        class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a
-                        class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span
-                        class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
-                </ol>
-            </div>
         </section>
         <section class="portfolio-block call-to-action border-bottom">
             <div class="container">
                 <div class="d-flex justify-content-center align-items-center content">
-                    <h3>Like what you see?</h3>
-                    <button class="btn btn-outline-primary btn-lg" type="button">Contact me</button>
+                    <h3>Gefällt Ihnen was sie sehen?</h3>
+                    <button class="btn btn-outline-primary btn-lg" type="button">Kontaktieren sie mich</button>
                 </div>
             </div>
         </section>

@@ -11,13 +11,13 @@ from portfolio.models import Project, Messages
 def index():
     latest_projects = Project.query.order_by(Project.date.desc()).limit(
         current_app.config.get('CAROUSEL_AMOUNT'))
-    return render_template('index.html', latest_projects=latest_projects)
+    return render_template('index.html', latest_projects=latest_projects, title='Home')
 
 
 @bp.route('/projects')
 def projects():
     projects = Project.query.order_by(Project.date.desc()).all()
-    return render_template('projects-grid-cards.html', projects=projects)
+    return render_template('projects-grid-cards.html', projects=projects, title='Projekte')
 
 
 @bp.route('/project/<project_name>')
@@ -25,12 +25,12 @@ def project(project_name):
     project = Project.query.filter_by(name=project_name).first()
     latest_projects = Project.query.order_by(Project.date.desc()).limit(4)
     return render_template('project-page.html', project=project,
-                           latest_projects=latest_projects)
+                           latest_projects=latest_projects, title=project.name)
 
 
 @bp.route('/cv')
 def cv():
-    return render_template('cv.html')
+    return render_template('cv.html', title='Lebenslauf')
 
 
 @bp.route('/contact', methods=['GET', 'POST'])
@@ -45,11 +45,4 @@ def contact():
         db.session.commit()
         flash('Ihre Nachricht wurde erfolgreich versendet.')
         return redirect(url_for('main.contact'))
-    return render_template('contact.html', form=contact_form)
-
-
-@bp.route('/admin')
-def admin():
-    # TODO: Create admin login
-    # TODO: Create admin dashboard
-    return render_template('admin.html')
+    return render_template('contact.html', form=contact_form, title='Kontakt')

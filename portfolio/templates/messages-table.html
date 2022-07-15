@@ -113,7 +113,7 @@
                         "<br>E-Mail: " + data.email +
                         "<br>Date: " + data.date + "</p>" +
                         data.message);
-                    $('#message-modal #mark-button').html("Mark as " + (data.unread === 1 ? "read" : "unread"));
+                    $('#message-modal #mark-button').html("Mark as " + (data.unread == 1 ? "read" : "unread"));
                     $('#message-modal').modal('show');
                 }
             });
