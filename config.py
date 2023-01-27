@@ -10,6 +10,6 @@ class Config(object):
     CAROUSEL_AMOUNT = 3
     PROJECTS_PER_PAGE = 12
 
-    UPLOAD_FOLDER = os.path.join(os.getcwd(), 'portfolio\\static\\img\\projects')
-    DOWNLOAD_FOLDER = os.path.join(os.getcwd(), 'portfolio\\static\\downloads')
+    UPLOAD_FOLDER = os.path.join(os.getcwd(), 'portfolio/static/img/projects')
+    DOWNLOAD_FOLDER = os.path.join(os.getcwd(), 'portfolio/static/downloads')
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
