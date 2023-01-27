@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, current_app
+from flask import render_template, flash, redirect, url_for, current_app, send_from_directory
 
 from portfolio import db
 from portfolio.main import bp
@@ -46,3 +46,7 @@ def contact():
         flash('Ihre Nachricht wurde erfolgreich versendet.')
         return redirect(url_for('main.contact'))
     return render_template('contact.html', form=contact_form, title='Kontakt')
+
+@bp.route('/download/<filename>')
+def download(filename):
+    return send_from_directory(current_app.config.get('DOWNLOAD_FOLDER'), filename)
