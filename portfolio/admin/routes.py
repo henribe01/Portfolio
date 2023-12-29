@@ -21,8 +21,9 @@ def index():
 @login_required
 def projects():
     page = request.args.get('page', 1, type=int)
-    projects = Project.query.order_by(Project.date.desc()).paginate(page, 10,
-                                                                    False)  # TODO: Replace 10 with settings from page
+    projects = Project.query.order_by(Project.date.desc()).paginate(page=page,
+                                                                    per_page=10,
+                                                                    error_out=False)# TODO: Replace 10 with settings from page
     # TODO: Add pagination in html
     if request.method == 'POST':
         return redirect(url_for('admin.create_project'))
