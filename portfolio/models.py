@@ -9,7 +9,7 @@ from portfolio import db, login
 class Admin(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True)
-    password_hash = db.Column(db.String(255))
+    password_hash = db.Column(db.Text())
 
     def __repr__(self):
         return '<Admin %r>' % self.username
