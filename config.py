@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config(object):
@@ -13,3 +17,6 @@ class Config(object):
     UPLOAD_FOLDER = os.path.join(os.getcwd(), 'portfolio/static/img/projects')
     DOWNLOAD_FOLDER = os.path.join(os.getcwd(), 'portfolio/static/downloads')
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+    FLATPAGES_EXTENSION = '.md'
+    FLATPAGES_ROOT = os.path.join(os.getcwd(), 'portfolio/static/md')
