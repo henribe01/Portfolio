@@ -9,7 +9,7 @@ from portfolio import db, login
 class Admin(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True)
-    password_hash = db.Column(db.Text())
+    password_hash = db.Column(db.String(255))
 
     def __repr__(self):
         return '<Admin %r>' % self.username
@@ -29,7 +29,7 @@ def load_user(user_id):
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    description = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.Text(), nullable=False)
     image = db.Column(db.String(255), nullable=False)
     git_url = db.Column(db.String(255), nullable=False)
     date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
