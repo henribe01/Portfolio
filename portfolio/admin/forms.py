@@ -3,6 +3,7 @@ from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, \
     URLField
 from wtforms.validators import DataRequired, URL
+from flask_ckeditor import CKEditorField
 
 
 class LoginForm(FlaskForm):
@@ -14,7 +15,8 @@ class LoginForm(FlaskForm):
 
 class ProjectForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    description = StringField('Description', validators=[DataRequired()])
+    #description = StringField('Description', validators=[DataRequired()])
+    description = CKEditorField('Description', validators=[DataRequired()])
     image = FileField('Image',
                       validators=[FileRequired(),
                                   FileAllowed(['jpg', 'png', 'jpeg', 'gif'])])

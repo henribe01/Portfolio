@@ -16,7 +16,9 @@
                                     alt="Card Image"></a>
                                 <div class="card-body">
                                     <h6><a href="#">{{ project.name }}</a></h6>
-                                    <p class="text-muted card-text">{{ project.description|truncate(100) }}</p>
+                                    <p class="text-muted card-text">
+                                        {{ project.description| striptags() | truncate(100) | safe }}
+                                    </p>
                                 </div>
                             </div>
                         </div>

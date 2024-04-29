@@ -54,8 +54,13 @@
                         </div>
                         <div class="mb-3">{{ form.submit(class_='btn btn-primary btn-lg d-block w-100') }}</div>
                     </form>
+
+                    {{ ckeditor.load(pkg_type='full') }}
+                    {{ ckeditor.config(name='description', height=400) }}
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SztA0gUsvOw?si=htY52tSuz86gYjJG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_consent import Consent
+from flask_ckeditor import CKEditor
 
 from config import Config
 
@@ -12,6 +13,7 @@ migrate = Migrate()
 login = LoginManager()
 login.login_view = 'admin.login'
 consent = Consent()
+ckeditor = CKEditor()
 
 
 def create_app(config_class=Config):
@@ -22,6 +24,7 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
     login.init_app(app)
     consent.init_app(app)
+    ckeditor.init_app(app)
 
     consent.add_standard_categories()
 

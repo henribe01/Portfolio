@@ -40,8 +40,14 @@ def create_project():
             uploaded_image.save(
                 os.path.join(current_app.config['UPLOAD_FOLDER'],
                              secure_filename(uploaded_image.filename)))
+        description = project_form.description.data
+        # Turn escape characters into html tags
+        description = description.replace('&lt;', '<')
+        description = description.replace('&gt;', '>')
+        description = description.replace('&quot;', '"')
+        description = description.replace('&amp;', '&')
         project = Project(name=project_form.name.data,
-                          description=project_form.description.data,
+                          description=description,
                           image=uploaded_image.filename,
                           git_url=project_form.git_url.data)
         db.session.add(project)
