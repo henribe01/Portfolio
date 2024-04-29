@@ -5,6 +5,7 @@ charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
 Flask==3.0.0
+Flask-CKEditor==0.5.1
 Flask-Consent==0.0.3
 Flask-FlatPages==0.8.2
 Flask-Login==0.6.3
