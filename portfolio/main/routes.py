@@ -50,3 +50,7 @@ def contact():
 @bp.route('/download/<filename>')
 def download(filename):
     return send_from_directory(current_app.config.get('DOWNLOAD_FOLDER'), filename)
+
+@bp.route('/impress')
+def impress():
+    return render_template('impress.html', title='Impressum')
