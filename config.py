@@ -7,10 +7,17 @@ load_dotenv(os.path.join(basedir, '.env'))
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'test'
+
+    # SQLAlchemy configuration
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
                               'sqlite:///' + os.path.join(
         os.path.dirname(__file__), 'portfolio.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_POOL_RECYCLE = 300
+    SQLALCHEMY_ENGINE_OPTIONS = {
+        'pool_recycle': SQLALCHEMY_POOL_RECYCLE
+    }
+
     CAROUSEL_AMOUNT = 3
     PROJECTS_PER_PAGE = 12
 
