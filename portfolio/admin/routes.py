@@ -23,7 +23,7 @@ def projects():
     page = request.args.get('page', 1, type=int)
     projects = Project.query.order_by(Project.date.desc()).paginate(page=page,
                                                                     per_page=10,
-                                                                    error_out=False)# TODO: Replace 10 with settings from page
+                                                                    error_out=False)  # TODO: Replace 10 with settings from page
     # TODO: Add pagination in html
     if request.method == 'POST':
         return redirect(url_for('admin.create_project'))
@@ -100,3 +100,30 @@ def login():
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('admin.index'))
     return render_template('login.html', form=form)
+
+
+@bp.route('/edit_project/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_project(id):
+    project = Project.query.get(id)
+    form = ProjectForm(obj=project)
+    if form.validate_on_submit():
+        uploaded_image = request.files.get('image')
+        if uploaded_image.filename != '':
+            uploaded_image.save(
+                os.path.join(current_app.config['UPLOAD_FOLDER'],
+                             secure_filename(uploaded_image.filename)))
+            project.image = uploaded_image.filename
+        description = form.description.data
+        # Turn escape characters into html tags
+        description = description.replace('&lt;', '<')
+        description = description.replace('&gt;', '>')
+        description = description.replace('&quot;', '"')
+        description = description.replace('&amp;', '&')
+        project.name = form.name.data
+        project.description = description
+        project.git_url = form.git_url.data
+        db.session.commit()
+        flash('Project updated!')
+        return redirect(url_for('admin.projects'))
+    return render_template('create_project.html', form=form)
