@@ -19,6 +19,10 @@
                 <form action="" method="post" novalidate>
                     {{ form.hidden_tag() }}
                     <div class="mb-3">
+                        Schreiben Sie mir eine Mail an <a href="mailto:contact@henri-be.de">contact@henri-be.de</a> oder
+                        nutzen Sie das Kontaktformular.
+                    </div>
+                    <div class="mb-3">
                         {{ form.name.label(class_='form-label') }}{{ form.name(class_='form-control item') }}
                         {% for error in form.name.errors %}
                             <div class="alert alert-danger" role="alert">
