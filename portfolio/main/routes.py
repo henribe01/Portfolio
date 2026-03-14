@@ -24,8 +24,24 @@ def projects():
 def project(project_name):
     project = Project.query.filter_by(name=project_name).first()
     latest_projects = Project.query.order_by(Project.date.desc()).limit(4)
+    # Get the readme file content from git_url
+    readme = ''
+    if project.git_url:
+        raw_url = project.git_url.replace('github.com', 'raw.githubusercontent.com')
+        raw_url = raw_url + '/refs/heads/main/readme.md'
+        try:
+            import requests
+            response = requests.get(raw_url)
+            if response.status_code == 200:
+                readme = response.text
+            else:
+                print(f'Failed to fetch README: {response.status_code}')
+                print(f'URL: {raw_url}')
+        except Exception as e:
+            print(f'Error fetching README: {e}')
+    print(readme)
     return render_template('project-page.html', project=project,
-                           latest_projects=latest_projects, title=project.name)
+                           latest_projects=latest_projects, title=project.name, readme=readme)
 
 
 @bp.route('/cv')
