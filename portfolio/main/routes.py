@@ -35,8 +35,8 @@ def project(project_name):
             if response.status_code == 200:
                 readme = response.text
             else:
-                print(f'Failed to fetch README: {response.status_code}')
-                print(f'URL: {raw_url}')
+                # Use description as fallback if README is not found
+                readme = project.description
         except Exception as e:
             print(f'Error fetching README: {e}')
     print(readme)
