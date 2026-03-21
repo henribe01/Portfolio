@@ -1,4 +1,5 @@
-from flask import render_template, flash, redirect, url_for, current_app, send_from_directory
+from flask import render_template, flash, redirect, url_for, current_app, send_from_directory, abort
+from urllib.parse import quote
 
 from portfolio import db
 from portfolio.main import bp
@@ -23,25 +24,39 @@ def projects():
 @bp.route('/project/<project_name>')
 def project(project_name):
     project = Project.query.filter_by(name=project_name).first()
+    if project is None:
+        abort(404)
+
     latest_projects = Project.query.order_by(Project.date.desc()).limit(4)
     # Get the readme file content from git_url
     readme = ''
+    readme_base_url = None
     if project.git_url:
-        raw_url = project.git_url.replace('github.com', 'raw.githubusercontent.com')
-        raw_url = raw_url + '/refs/heads/main/readme.md'
+        clean_repo_url = project.git_url.rstrip('/')
+        raw_repo_url = clean_repo_url.replace('github.com', 'raw.githubusercontent.com')
         try:
             import requests
-            response = requests.get(raw_url)
-            if response.status_code == 200:
-                readme = response.text
-            else:
-                # Use description as fallback if README is not found
+            for branch in ('main', 'master'):
+                readme_base_url = f'{raw_repo_url}/refs/heads/{quote(branch)}/'
+                for readme_name in ('README.md', 'readme.md'):
+                    response = requests.get(f'{readme_base_url}{readme_name}')
+                    if response.status_code == 200:
+                        readme = response.text
+                        break
+                if readme:
+                    break
+
+            if not readme:
+                readme_base_url = None
                 readme = project.description
         except Exception as e:
             print(f'Error fetching README: {e}')
-    print(readme)
+            readme_base_url = None
+            readme = project.description
+
     return render_template('project-page.html', project=project,
-                           latest_projects=latest_projects, title=project.name, readme=readme)
+                           latest_projects=latest_projects, title=project.name,
+                           readme=readme, readme_base_url=readme_base_url)
 
 
 @bp.route('/cv')
