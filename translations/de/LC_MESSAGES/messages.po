@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-04-05 11:58+0200\n"
+"POT-Creation-Date: 2026-04-05 19:11+0200\n"
 "PO-Revision-Date: 2026-04-05 11:58+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: portfolio/main/routes.py:16 portfolio/templates/base_main.html:22
+#: portfolio/main/routes.py:16 portfolio/templates/base_main.html:64
 msgid "Home"
 msgstr "Startseite"
 
-#: portfolio/main/routes.py:22 portfolio/templates/base_main.html:23
-#: portfolio/templates/base_main.html:36
+#: portfolio/main/routes.py:22 portfolio/templates/base_main.html:65
+#: portfolio/templates/base_main.html:84
 msgid "Projects"
 msgstr "Projekte"
 
-#: portfolio/main/routes.py:65 portfolio/templates/base_main.html:24
-#: portfolio/templates/base_main.html:35
+#: portfolio/main/routes.py:65 portfolio/templates/base_main.html:66
+#: portfolio/templates/base_main.html:83
 msgid "CV"
 msgstr "Lebenslauf"
 
@@ -36,8 +36,8 @@ msgstr "Lebenslauf"
 msgid "Your message has been sent successfully."
 msgstr "Ihre Nachricht wurde erfolgreich gesendet."
 
-#: portfolio/main/routes.py:80 portfolio/templates/base_main.html:25
-#: portfolio/templates/base_main.html:35
+#: portfolio/main/routes.py:80 portfolio/templates/base_main.html:67
+#: portfolio/templates/base_main.html:83
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -93,13 +93,17 @@ msgstr "Abschlussnote: 1,5"
 msgid ""
 "Advanced (since 2019), focused on scientific applications, automation, "
 "and academic work"
-msgstr "Fortgeschrittene Kenntnisse (seit 2019), mit Schwerpunkt auf wissenschaftlichen Anwendungen, Automatisierung und akademischer Arbeit"
+msgstr ""
+"Fortgeschrittene Kenntnisse (seit 2019), mit Schwerpunkt auf "
+"wissenschaftlichen Anwendungen, Automatisierung und akademischer Arbeit"
 
 #: portfolio/templates/cv.html:60 portfolio/templates/cv.html:72
 msgid ""
 "Solid knowledge through school education, university courses, and "
 "practical project work"
-msgstr "Solides Wissen durch schulische Ausbildung, universitäre Kurse und praktische Projektarbeit"
+msgstr ""
+"Solides Wissen durch schulische Ausbildung, universitäre Kurse und "
+"praktische Projektarbeit"
 
 #: portfolio/templates/cv.html:66
 msgid "Academic use (since 2023)"
@@ -130,10 +134,8 @@ msgid "English"
 msgstr "Englisch"
 
 #: portfolio/templates/cv.html:103
-msgid ""
-"Very good command / Fluent (C1 level in comprehension and writing; B2 in "
-"spoken communication)"
-msgstr "Fließend (C1 Niveau in Verständnis und schriftlicher Kommunikation; B2 in mündlicher Kommunikation)"
+msgid "Fluent (C1 level in comprehension and writing; B2 in spoken communication)"
+msgstr "Fließend (C1-Niveau in Verständnis und Schrift; B2 in mündlicher Kommunikation)"
 
 #: portfolio/templates/cv.html:116
 msgid "Hobbies"
@@ -151,7 +153,9 @@ msgstr "Literatur"
 msgid ""
 "Developing physics simulations and continuing education in machine "
 "learning and neural networks"
-msgstr "Entwicklung von Physiksimulationen und Weiterbildung in maschinellem Lernen und neuronalen Netzen"
+msgstr ""
+"Entwicklung von Physiksimulationen und Weiterbildung in maschinellem "
+"Lernen und neuronalen Netzen"
 
 #: portfolio/templates/cv.html:134
 msgid "Passion for English-language science fiction (original editions)"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-04-05 11:58+0200\n"
+"POT-Creation-Date: 2026-04-05 19:11+0200\n"
 "PO-Revision-Date: 2026-04-05 11:58+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: portfolio/main/routes.py:16 portfolio/templates/base_main.html:22
+#: portfolio/main/routes.py:16 portfolio/templates/base_main.html:64
 msgid "Home"
 msgstr ""
 
-#: portfolio/main/routes.py:22 portfolio/templates/base_main.html:23
-#: portfolio/templates/base_main.html:36
+#: portfolio/main/routes.py:22 portfolio/templates/base_main.html:65
+#: portfolio/templates/base_main.html:84
 msgid "Projects"
 msgstr ""
 
-#: portfolio/main/routes.py:65 portfolio/templates/base_main.html:24
-#: portfolio/templates/base_main.html:35
+#: portfolio/main/routes.py:65 portfolio/templates/base_main.html:66
+#: portfolio/templates/base_main.html:83
 msgid "CV"
 msgstr ""
 
@@ -36,8 +36,8 @@ msgstr ""
 msgid "Your message has been sent successfully."
 msgstr ""
 
-#: portfolio/main/routes.py:80 portfolio/templates/base_main.html:25
-#: portfolio/templates/base_main.html:35
+#: portfolio/main/routes.py:80 portfolio/templates/base_main.html:67
+#: portfolio/templates/base_main.html:83
 msgid "Contact"
 msgstr ""
 
@@ -130,9 +130,7 @@ msgid "English"
 msgstr ""
 
 #: portfolio/templates/cv.html:103
-msgid ""
-"Very good command / Fluent (C1 level in comprehension and writing; B2 in "
-"spoken communication)"
+msgid "Fluent (C1 level in comprehension and writing; B2 in spoken communication)"
 msgstr ""
 
 #: portfolio/templates/cv.html:116
@@ -217,4 +215,10 @@ msgstr ""
 #: portfolio/templates/project-page.html:28
 msgid "More Projects"
 msgstr ""
+
+#~ msgid ""
+#~ "Very good command / Fluent (C1 "
+#~ "level in comprehension and writing; B2"
+#~ " in spoken communication)"
+#~ msgstr ""
 
