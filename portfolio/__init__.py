@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask, request, session
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_consent import Consent
 from flask_ckeditor import CKEditor
+from flask_babel import Babel
 
 import html
 import markdown as md
@@ -21,7 +22,7 @@ login = LoginManager()
 login.login_view = 'admin.login'
 consent = Consent()
 ckeditor = CKEditor()
-
+babel = Babel()
 GITHUB_ATTACHMENT_VIDEO_PATTERN = re.compile(
     r'^https://github\.com/user-attachments/assets/[a-zA-Z0-9-]+/?$'
 )
@@ -129,6 +130,12 @@ def render_markdown(markdown_text: str, readme_base_url: str | None = None) -> M
     return Markup(html_output)
     
 
+def get_locale():
+    lang = session.get('lang')
+    if lang in Config.LANGUAGES:
+        return lang
+    return request.accept_languages.best_match(Config.LANGUAGES) or Config.BABEL_DEFAULT_LOCALE
+
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -139,6 +146,12 @@ def create_app(config_class=Config):
     login.init_app(app)
     consent.init_app(app)
     ckeditor.init_app(app)
+    babel.init_app(app, locale_selector=get_locale)
+
+    @app.context_processor
+    def inject_current_locale():
+        locale = str(get_locale() or app.config.get('BABEL_DEFAULT_LOCALE', 'en'))
+        return {'current_locale': locale}
     
     app.jinja_env.filters['markdown'] = render_markdown
 

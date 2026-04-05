@@ -10,6 +10,48 @@
     <link rel="stylesheet" href="../static/fonts/ionicons.min.css">
     <link rel="stylesheet" href="../static/css/Hero-Carousel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <style>
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            margin-left: 0.6rem;
+            padding: 0.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .lang-switch .lang-option {
+            display: inline-block;
+            min-width: 2.2rem;
+            text-align: center;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .lang-switch .lang-option:hover {
+            color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.07);
+        }
+
+        .lang-switch .lang-option.active {
+            color: #fff;
+            background-color: #2e5d7b;
+        }
+
+        @media (max-width: 991.98px) {
+            .lang-switch {
+                margin: 0.3rem 0 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -19,10 +61,18 @@
                 class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="{{ url_for('main.index') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.projects') }}">Projekte</a></li>
-                <li class="nav-item"><a class="nav-link" href={{ url_for('main.cv') }}>Lebenslauf</a></li>
-                <li class="nav-item"><a class="nav-link" href={{ url_for('main.contact') }}>Kontakt</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.projects') }}">{{ _('Projects') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.cv') }}">{{ _('CV') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.contact') }}">{{ _('Contact') }}</a></li>
+                <li class="nav-item d-flex align-items-center">
+                    <div class="lang-switch" aria-label="Language switch">
+                        <a class="lang-option {{ 'active' if current_locale.startswith('de') else '' }}"
+                           href="{{ url_for('main.set_language', lang='de') }}">DE</a>
+                        <a class="lang-option {{ 'active' if current_locale.startswith('en') else '' }}"
+                           href="{{ url_for('main.set_language', lang='en') }}">EN</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -30,8 +80,8 @@
 {% block content %}{% endblock %}
 <footer class="page-footer">
     <div class="container">
-        <div class="links"><a href="{{ url_for('main.cv') }}">Lebenslauf</a><a href="{{ url_for('main.contact') }}">Kontakt</a></a>
-            <a href="{{ url_for('main.projects') }}">Projekte</a>
+        <div class="links"><a href="{{ url_for('main.cv') }}">{{ _('CV') }}</a><a href="{{ url_for('main.contact') }}">{{ _('Contact') }}</a></a>
+            <a href="{{ url_for('main.projects') }}">{{ _('Projects') }}</a>
         </div>
     </div>
 </footer>

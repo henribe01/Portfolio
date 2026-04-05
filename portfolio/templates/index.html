@@ -5,9 +5,9 @@
             <div class="container">
                 <div class="about-me">
                     <p>
-                        Willkommen auf meinem Portfolio. Ich bin <strong>Henri Benecke</strong>
-                        und studiere "Physik" im Master an der Universität Heidelberg. <br>
-                        Hier finden Sie eine Auswahl meiner Projekte und Informationen über mich.
+                        {{ _('Welcome to my portfolio.') }} {{ _('I am') }} <strong>Henri Benecke</strong>
+                        {{ _('and I am pursuing a Master\'s degree in Physics at Heidelberg University.') }} <br>
+                        {{ _('Here you can find a selection of my projects and information about me.') }}
                     </p>
                 </div>
             </div>
@@ -15,7 +15,7 @@
         <section>
             <div class="container">
                 <div class="heading text-center">
-                    <h2>Meine Projekte</h2>
+                    <h2>{{ _('My Projects') }}</h2>
                 </div>
 
             </div>
@@ -37,8 +37,7 @@
                                     <h1 class="text-uppercase fw-bold">{{ project.name }}</h1>
                                     <p class="my-3">{{ project.description| striptags() | truncate(100) | safe }}</p><a
                                         class="btn btn-primary btn-lg me-2" role="button"
-                                        href={{ url_for('main.project', project_name=project.name) }}>Link zum
-                                    Projekt</a>
+                                        href={{ url_for('main.project', project_name=project.name) }}>{{ _('Project Details') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -48,9 +47,9 @@
                     </div>
                     <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span
                             class="carousel-control-prev-icon"></span><span
-                            class="visually-hidden">Previous</span></a><a
+                                class="visually-hidden">{{ _('Previous') }}</span></a><a
                             class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span
-                            class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a>
+                                class="carousel-control-next-icon"></span><span class="visually-hidden">{{ _('Next') }}</span></a>
                     </div>
                     <ol class="carousel-indicators">
                         <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>

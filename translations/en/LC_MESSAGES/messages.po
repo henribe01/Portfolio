@@ -1,0 +1,220 @@
+# English translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-04-05 11:58+0200\n"
+"PO-Revision-Date: 2026-04-05 11:58+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: portfolio/main/routes.py:16 portfolio/templates/base_main.html:22
+msgid "Home"
+msgstr ""
+
+#: portfolio/main/routes.py:22 portfolio/templates/base_main.html:23
+#: portfolio/templates/base_main.html:36
+msgid "Projects"
+msgstr ""
+
+#: portfolio/main/routes.py:65 portfolio/templates/base_main.html:24
+#: portfolio/templates/base_main.html:35
+msgid "CV"
+msgstr ""
+
+#: portfolio/main/routes.py:78
+msgid "Your message has been sent successfully."
+msgstr ""
+
+#: portfolio/main/routes.py:80 portfolio/templates/base_main.html:25
+#: portfolio/templates/base_main.html:35
+msgid "Contact"
+msgstr ""
+
+#: portfolio/templates/contact.html:17
+msgid "Contact Me"
+msgstr ""
+
+#: portfolio/templates/contact.html:22
+msgid "Send me an email at"
+msgstr ""
+
+#: portfolio/templates/contact.html:23
+msgid "or use the contact form."
+msgstr ""
+
+#: portfolio/templates/cv.html:9
+msgid "Education"
+msgstr ""
+
+#: portfolio/templates/cv.html:14
+msgid "Master in Physics"
+msgstr ""
+
+#: portfolio/templates/cv.html:15
+msgid "Heidelberg University"
+msgstr ""
+
+#: portfolio/templates/cv.html:17
+msgid "present"
+msgstr ""
+
+#: portfolio/templates/cv.html:24
+msgid "Bachelor in Computing in Science - Physics"
+msgstr ""
+
+#: portfolio/templates/cv.html:25
+msgid "University of Hamburg"
+msgstr ""
+
+#: portfolio/templates/cv.html:29
+msgid "Final grade: 1.7"
+msgstr ""
+
+#: portfolio/templates/cv.html:34
+msgid "Vocational high school in technology - focus on mechatronics"
+msgstr ""
+
+#: portfolio/templates/cv.html:39
+msgid "Final grade: 1.5"
+msgstr ""
+
+#: portfolio/templates/cv.html:54
+msgid ""
+"Advanced (since 2019), focused on scientific applications, automation, "
+"and academic work"
+msgstr ""
+
+#: portfolio/templates/cv.html:60 portfolio/templates/cv.html:72
+msgid ""
+"Solid knowledge through school education, university courses, and "
+"practical project work"
+msgstr ""
+
+#: portfolio/templates/cv.html:66
+msgid "Academic use (since 2023)"
+msgstr ""
+
+#: portfolio/templates/cv.html:76
+msgid "Other:"
+msgstr ""
+
+#: portfolio/templates/cv.html:77
+msgid "Julia, Numerical Methods, LaTeX, Linux, Git, Cython, Microsoft Office"
+msgstr ""
+
+#: portfolio/templates/cv.html:89
+msgid "Languages"
+msgstr ""
+
+#: portfolio/templates/cv.html:95
+msgid "German"
+msgstr ""
+
+#: portfolio/templates/cv.html:97
+msgid "Native language"
+msgstr ""
+
+#: portfolio/templates/cv.html:101
+msgid "English"
+msgstr ""
+
+#: portfolio/templates/cv.html:103
+msgid ""
+"Very good command / Fluent (C1 level in comprehension and writing; B2 in "
+"spoken communication)"
+msgstr ""
+
+#: portfolio/templates/cv.html:116
+msgid "Hobbies"
+msgstr ""
+
+#: portfolio/templates/cv.html:123
+msgid "Programming"
+msgstr ""
+
+#: portfolio/templates/cv.html:126
+msgid "Literature"
+msgstr ""
+
+#: portfolio/templates/cv.html:131
+msgid ""
+"Developing physics simulations and continuing education in machine "
+"learning and neural networks"
+msgstr ""
+
+#: portfolio/templates/cv.html:134
+msgid "Passion for English-language science fiction (original editions)"
+msgstr ""
+
+#: portfolio/templates/cv.html:142
+msgid "Music"
+msgstr ""
+
+#: portfolio/templates/cv.html:145
+msgid "Sports"
+msgstr ""
+
+#: portfolio/templates/cv.html:150
+msgid "Self-taught electric guitar learning"
+msgstr ""
+
+#: portfolio/templates/cv.html:153
+msgid "Active balance through cycling and strength training"
+msgstr ""
+
+#: portfolio/templates/index.html:8
+msgid "Welcome to my portfolio."
+msgstr ""
+
+#: portfolio/templates/index.html:8
+msgid "I am"
+msgstr ""
+
+#: portfolio/templates/index.html:9
+msgid "and I am pursuing a Master's degree in Physics at Heidelberg University."
+msgstr ""
+
+#: portfolio/templates/index.html:10
+msgid "Here you can find a selection of my projects and information about me."
+msgstr ""
+
+#: portfolio/templates/index.html:18
+#: portfolio/templates/projects-grid-cards.html:7
+msgid "My Projects"
+msgstr ""
+
+#: portfolio/templates/index.html:40
+msgid "Project Details"
+msgstr ""
+
+#: portfolio/templates/index.html:50
+msgid "Previous"
+msgstr ""
+
+#: portfolio/templates/index.html:52
+msgid "Next"
+msgstr ""
+
+#: portfolio/templates/project-page.html:21
+msgid "Date"
+msgstr ""
+
+#: portfolio/templates/project-page.html:23
+msgid "GitHub Link"
+msgstr ""
+
+#: portfolio/templates/project-page.html:28
+msgid "More Projects"
+msgstr ""
+

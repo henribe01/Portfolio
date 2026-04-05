@@ -1,4 +1,5 @@
-from flask import render_template, flash, redirect, url_for, current_app, send_from_directory, abort
+from flask import render_template, flash, redirect, url_for, current_app, send_from_directory, abort, request, session
+from flask_babel import _
 from urllib.parse import quote
 
 from portfolio import db
@@ -12,13 +13,13 @@ from portfolio.models import Project, Messages
 def index():
     latest_projects = Project.query.order_by(Project.date.desc()).limit(
         current_app.config.get('CAROUSEL_AMOUNT'))
-    return render_template('index.html', latest_projects=latest_projects, title='Home')
+    return render_template('index.html', latest_projects=latest_projects, title=_('Home'))
 
 
 @bp.route('/projects')
 def projects():
     projects = Project.query.order_by(Project.date.desc()).all()
-    return render_template('projects-grid-cards.html', projects=projects, title='Projekte')
+    return render_template('projects-grid-cards.html', projects=projects, title=_('Projects'))
 
 
 @bp.route('/project/<project_name>')
@@ -61,7 +62,7 @@ def project(project_name):
 
 @bp.route('/cv')
 def cv():
-    return render_template('cv.html', title='Lebenslauf')
+    return render_template('cv.html', title=_('CV'))
 
 
 @bp.route('/contact', methods=['GET', 'POST'])
@@ -74,10 +75,16 @@ def contact():
                            message=contact_form.message.data)
         db.session.add(message)
         db.session.commit()
-        flash('Ihre Nachricht wurde erfolgreich versendet.')
+        flash(_('Your message has been sent successfully.'))
         return redirect(url_for('main.contact'))
-    return render_template('contact.html', form=contact_form, title='Kontakt')
+    return render_template('contact.html', form=contact_form, title=_('Contact'))
 
 @bp.route('/download/<filename>')
 def download(filename):
     return send_from_directory(current_app.config.get('DOWNLOAD_FOLDER'), filename)
+
+@bp.route('/set-language/<lang>')
+def set_language(lang):
+    if lang in current_app.config.get('LANGUAGES'):
+        session['lang'] = lang
+    return redirect(request.referrer or url_for('main.index'))

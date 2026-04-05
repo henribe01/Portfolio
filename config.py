@@ -27,3 +27,8 @@ class Config(object):
 
     FLATPAGES_EXTENSION = '.md'
     FLATPAGES_ROOT = os.path.join(os.getcwd(), 'portfolio/static/md')
+    
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'Europe/Berlin'
+    BABEL_TRANSLATION_DIRECTORIES = os.path.join(basedir, 'translations')
+    LANGUAGES = ['en', 'de']

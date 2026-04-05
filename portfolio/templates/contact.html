@@ -14,13 +14,13 @@
         <section class="portfolio-block contact">
             <div class="container">
                 <div class="heading">
-                    <h2>Kontaktieren sie mich</h2>
+                    <h2>{{ _('Contact Me') }}</h2>
                 </div>
                 <form action="" method="post" novalidate>
                     {{ form.hidden_tag() }}
                     <div class="mb-3">
-                        Schreiben Sie mir eine Mail an <a href="mailto:contact@henri-be.de">contact@henri-be.de</a> oder
-                        nutzen Sie das Kontaktformular.
+                        {{ _('Send me an email at') }} <a href="mailto:contact@henri-be.de">contact@henri-be.de</a>
+                        {{ _('or use the contact form.') }}
                     </div>
                     <div class="mb-3">
                         {{ form.name.label(class_='form-label') }}{{ form.name(class_='form-control item') }}
